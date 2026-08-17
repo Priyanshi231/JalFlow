@@ -64,7 +64,6 @@ export default function Layout() {
         <div className="sidebar-footer">
           <div className="developer-label">Developed by</div>
           <strong>Priyanshi Jain</strong>
-          <span>Talking Crooks IT Pvt. Ltd.</span>
         </div>
       </aside>
 
