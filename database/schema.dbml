@@ -1,0 +1,55 @@
+Project JalFlow {
+  database_type: "MongoDB"
+}
+
+Table users {
+  _id objectId [pk]
+  name string
+  email string
+  role string
+  createdAt datetime
+}
+
+Table customers {
+  _id objectId [pk]
+  name string
+  phone string
+  address string
+  createdAt datetime
+}
+
+Table drivers {
+  _id objectId [pk]
+  name string
+  phone string
+  tankerNumber string
+  status string
+  createdAt datetime
+}
+
+Table bookings {
+  _id objectId [pk]
+  bookingId string [unique]
+  customer objectId [ref: > customers._id]
+  driver objectId [ref: > drivers._id]
+  waterQuantity number
+  deliveryDate datetime
+  timeSlot string
+  paymentMethod string
+  status string
+  amount number
+  notes string
+  createdAt datetime
+}
+
+Table payments {
+  _id objectId [pk]
+  booking objectId [ref: > bookings._id]
+  customer objectId [ref: > customers._id]
+  amount number
+  method string
+  status string
+  reference string
+  paymentDate datetime
+  createdAt datetime
+}
